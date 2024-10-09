@@ -1,7 +1,7 @@
 import * as THREE from "three";
-import { gameEngine, root } from "./Index";
+import { pixelblocks, root } from "./Index";
 
-class GameEngine {
+class PixelBlocks {
   constructor() {
     (this.scene = null),
       (this.camera = null),
@@ -215,7 +215,7 @@ class GameEngine {
       closeButton.innerText = "Close"
 
       closeButton.addEventListener("click", () => {
-        gameEngine.pause("unpause")
+        pixelblocks.pause("unpause")
       })
 
       optionsDiv.appendChild(exitButton);
@@ -232,7 +232,7 @@ class GameEngine {
 }
 
 export function animate() {
-  gameEngine.update();
+  pixelblocks.update();
 }
 
-export default GameEngine;
+export default PixelBlocks;

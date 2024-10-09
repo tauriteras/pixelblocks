@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 import blockDATA from "../../../../public/blockDATA.json";
-import { gameEngine } from "../../../Index";
+import { pixelblocks } from "../../../Index";
 
 class Block {
   constructor(id, x, y, index, data) {
@@ -54,16 +54,16 @@ class Block {
     this.data.collisions = blockDATA[newID].collisions;
     
     if (this.data.position.x > 1) {
-      gameEngine.world.blocks[this.index - 1].updateTexture();
+      pixelblocks.world.blocks[this.index - 1].updateTexture();
     }
     if (this.data.position.x < 100) {
-      gameEngine.world.blocks[this.index - 1].updateTexture();
+      pixelblocks.world.blocks[this.index - 1].updateTexture();
     }
     if (this.data.position.y < 56) {
-      gameEngine.world.blocks[this.index + 100].updateTexture();
+      pixelblocks.world.blocks[this.index + 100].updateTexture();
     }
     if (this.data.position.y > 1) {
-      gameEngine.world.blocks[this.index - 100].updateTexture();
+      pixelblocks.world.blocks[this.index - 100].updateTexture();
     }
   }
 
@@ -131,38 +131,38 @@ class Block {
     this.data.collisions = blockDATA[0].collisions;
 
     if (this.data.position.x > 1) {
-      gameEngine.world.blocks[this.index - 1].updateTexture();
+      pixelblocks.world.blocks[this.index - 1].updateTexture();
     }
     if (this.data.position.x < 100) {
-      gameEngine.world.blocks[this.index - 1].updateTexture();
+      pixelblocks.world.blocks[this.index - 1].updateTexture();
     }
     if (this.data.position.y < 56) {
-      gameEngine.world.blocks[this.index + 100].updateTexture();
+      pixelblocks.world.blocks[this.index + 100].updateTexture();
     }
     if (this.data.position.y > 1) {
-      gameEngine.world.blocks[this.index - 100].updateTexture();
+      pixelblocks.world.blocks[this.index - 100].updateTexture();
     }
   }
 
   updateTexture() {
     if (
-      gameEngine.world.blocks[this.index].data.id ===
-        gameEngine.world.blocks[this.index + 100].data.id &&
-      blockDATA[gameEngine.world.blocks[this.index].data.id].altTexture.top != "NONE"
+      pixelblocks.world.blocks[this.index].data.id ===
+        pixelblocks.world.blocks[this.index + 100].data.id &&
+      blockDATA[pixelblocks.world.blocks[this.index].data.id].altTexture.top != "NONE"
     ) {
-      gameEngine.world.blocks[this.index].sprite.material.map =
+      pixelblocks.world.blocks[this.index].sprite.material.map =
         new THREE.TextureLoader().load(
           "./TEXTURES/BLOCKS/" +
-            blockDATA[gameEngine.world.blocks[this.index].data.id].altTexture.top
+            blockDATA[pixelblocks.world.blocks[this.index].data.id].altTexture.top
         );
     }
     if (
-      gameEngine.world.blocks[this.index].data.id !=
-      gameEngine.world.blocks[this.index + 100].data.id
+      pixelblocks.world.blocks[this.index].data.id !=
+      pixelblocks.world.blocks[this.index + 100].data.id
     ) {
-      gameEngine.world.blocks[this.index].sprite.material.map =
+      pixelblocks.world.blocks[this.index].sprite.material.map =
         new THREE.TextureLoader().load(
-          "./TEXTURES/BLOCKS/" + blockDATA[gameEngine.world.blocks[this.index].data.id].texture
+          "./TEXTURES/BLOCKS/" + blockDATA[pixelblocks.world.blocks[this.index].data.id].texture
         );
     }
   }

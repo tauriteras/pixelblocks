@@ -4,7 +4,7 @@ import bgBlockDATA from '../../../../../public/bgBlockDATA.json';
 
 import Block from "../Block";
 
-import { gameEngine } from "../../../../Index";
+import { pixelblocks } from "../../../../Index";
 
 class BackgroundBlock extends Block {
   constructor(id, x, y, index, data) {
@@ -48,16 +48,16 @@ class BackgroundBlock extends Block {
     this.data.collisions = bgBlockDATA[0].collisions;
 
     if (this.data.position.x > 1) {
-      gameEngine.world.backgroundBlocks[this.index - 1].updateTexture();
+      pixelblocks.world.backgroundBlocks[this.index - 1].updateTexture();
     }
     if (this.data.position.x < 100) {
-      gameEngine.world.backgroundBlocks[this.index - 1].updateTexture();
+      pixelblocks.world.backgroundBlocks[this.index - 1].updateTexture();
     }
     if (this.data.position.y < 56) {
-      gameEngine.world.backgroundBlocks[this.index + 100].updateTexture();
+      pixelblocks.world.backgroundBlocks[this.index + 100].updateTexture();
     }
     if (this.data.position.y > 1) {
-      gameEngine.world.backgroundBlocks[this.index - 100].updateTexture();
+      pixelblocks.world.backgroundBlocks[this.index - 100].updateTexture();
     }
   }
 
@@ -122,38 +122,38 @@ class BackgroundBlock extends Block {
     );
     
     if (this.data.position.x > 1) {
-      gameEngine.world.backgroundBlocks[this.index - 1].updateTexture();
+      pixelblocks.world.backgroundBlocks[this.index - 1].updateTexture();
     }
     if (this.data.position.x < 100) {
-      gameEngine.world.backgroundBlocks[this.index - 1].updateTexture();
+      pixelblocks.world.backgroundBlocks[this.index - 1].updateTexture();
     }
     if (this.data.position.y < 56) {
-      gameEngine.world.backgroundBlocks[this.index + 100].updateTexture();
+      pixelblocks.world.backgroundBlocks[this.index + 100].updateTexture();
     }
     if (this.data.position.y > 1) {
-      gameEngine.world.backgroundBlocks[this.index - 100].updateTexture();
+      pixelblocks.world.backgroundBlocks[this.index - 100].updateTexture();
     }
   }
 
   updateTexture() {
     if (
-      gameEngine.world.backgroundBlocks[this.index].data.id ===
-        gameEngine.world.backgroundBlocks[this.index + 100].data.id &&
-      bgBlockDATA[gameEngine.world.backgroundBlocks[this.index].data.id].altTexture.top != "NONE"
+      pixelblocks.world.backgroundBlocks[this.index].data.id ===
+        pixelblocks.world.backgroundBlocks[this.index + 100].data.id &&
+      bgBlockDATA[pixelblocks.world.backgroundBlocks[this.index].data.id].altTexture.top != "NONE"
     ) {
-      gameEngine.world.backgroundBlocks[this.index].sprite.material.map =
+      pixelblocks.world.backgroundBlocks[this.index].sprite.material.map =
         new THREE.TextureLoader().load(
           "./TEXTURES/BACKGROUNDBLOCKS/" +
-            bgBlockDATA[gameEngine.world.backgroundBlocks[this.index].data.id].altTexture.top
+            bgBlockDATA[pixelblocks.world.backgroundBlocks[this.index].data.id].altTexture.top
         );
     }
     if (
-      gameEngine.world.backgroundBlocks[this.index].data.id !=
-      gameEngine.world.backgroundBlocks[this.index + 100].data.id
+      pixelblocks.world.backgroundBlocks[this.index].data.id !=
+      pixelblocks.world.backgroundBlocks[this.index + 100].data.id
     ) {
-      gameEngine.world.backgroundBlocks[this.index].sprite.material.map =
+      pixelblocks.world.backgroundBlocks[this.index].sprite.material.map =
         new THREE.TextureLoader().load(
-          "./TEXTURES/BACKGROUNDBLOCKS/" + bgBlockDATA[gameEngine.world.backgroundBlocks[this.index].data.id].texture
+          "./TEXTURES/BACKGROUNDBLOCKS/" + bgBlockDATA[pixelblocks.world.backgroundBlocks[this.index].data.id].texture
         );
     }
   }

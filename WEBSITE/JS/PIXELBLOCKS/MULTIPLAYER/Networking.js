@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
-import { gameEngine } from "../../Index";
+import { pixelblocks } from "../../Index";
 import World from "../MAP/World";
 import Player from "../PLAYER/Player";
 
@@ -7,7 +7,7 @@ export function initNetworking() {
 
     const socket = io("http://localhost:3069");
 
-    gameEngine.socket = socket;
+    pixelblocks.socket = socket;
 
     socket.on("players-here", (data) => {
       console.log("players-here", data);
@@ -39,12 +39,12 @@ export function initNetworking() {
     
     socket.on("player-punch-block", (index) => {
       console.log("player-punch-block", index);
-      gameEngine.world.blocks[index].punch();
+      pixelblocks.world.blocks[index].punch();
     });
 
     socket.on('player-punch-bgBlock', (index) => {
       console.log("player-punch-bgBlock", index);
-      gameEngine.world.backgroundBlocks[index].punch();
+      pixelblocks.world.backgroundBlocks[index].punch();
     })
     
     socket.on("player-build", (data) => {
@@ -58,14 +58,14 @@ export function initNetworking() {
     socket.on('join-world', (data) => {
       console.log('join-world', data)
 
-      gameEngine.camera.position.x = data.entry.x;
-      gameEngine.camera.position.y = data.entry.y;
+      pixelblocks.camera.position.x = data.entry.x;
+      pixelblocks.camera.position.y = data.entry.y;
 
-      gameEngine.world = new World(data);
-      gameEngine.player = new Player(socket.id, data.entry);
+      pixelblocks.world = new World(data);
+      pixelblocks.player = new Player(socket.id, data.entry);
 
-      gameEngine.world.load(gameEngine.scene);
-      gameEngine.scene.add(gameEngine.player.spawn());
+      pixelblocks.world.load(pixelblocks.scene);
+      pixelblocks.scene.add(pixelblocks.player.spawn());
 
     })
     

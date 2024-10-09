@@ -1,8 +1,8 @@
-import GameEngine from "./GameEngine";
+import PixelBlocks from "./PixelBlocks";
 import GUIController from "./GAME/GUI/GUIController";
 
 export const root = document.getElementById("root");
-export const gameEngine = new GameEngine()
+export const pixelblocks = new PixelBlocks()
 export const guiController = new GUIController()
 
 document.addEventListener("DOMContentLoaded", () => {

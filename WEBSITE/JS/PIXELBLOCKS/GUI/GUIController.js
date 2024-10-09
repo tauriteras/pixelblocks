@@ -1,7 +1,7 @@
 import WebGL from "three/addons/capabilities/WebGL.js";
 import { initNetworking } from "../MULTIPLAYER/Networking";
-import { gameEngine, guiController, root } from "../../Index";
-import { animate } from "../../GameEngine";
+import { pixelblocks, guiController, root } from "../../Index";
+import { animate } from "../../PixelBlocks";
 
 class GUIController {
   constructor() {
@@ -54,33 +54,33 @@ function createHeader() {
       guiController.header.classList.add("hidden");
     }
 
-    if (gameEngine.running === true) {
+    if (pixelblocks.running === true) {
       return;
     }
 
     if (WebGL.isWebGL2Available()) {
-      gameEngine.init();
-      gameEngine.loadWorldSelector();
+      pixelblocks.init();
+      pixelblocks.loadWorldSelector();
 
-      gameEngine.renderer.setAnimationLoop(animate);
-      root.appendChild(gameEngine.renderer.domElement);
+      pixelblocks.renderer.setAnimationLoop(animate);
+      root.appendChild(pixelblocks.renderer.domElement);
 
       window.addEventListener("pointermove", (event) => {
-        gameEngine.pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-        gameEngine.pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        pixelblocks.pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+        pixelblocks.pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
       });
 
       window.addEventListener("pointerdown", () => {
-        gameEngine.controls.mouse.leftMouse = true;
+        pixelblocks.controls.mouse.leftMouse = true;
       });
 
       window.addEventListener("pointerup", () => {
-        gameEngine.controls.mouse.leftMouse = false;
+        pixelblocks.controls.mouse.leftMouse = false;
       });
 
       window.addEventListener("pointerleave", () => {
-        gameEngine.controls.mouse.rightMouse = false;
-        gameEngine.controls.mouse.leftMouse = false;
+        pixelblocks.controls.mouse.rightMouse = false;
+        pixelblocks.controls.mouse.leftMouse = false;
       });
 
       document.addEventListener("keydown", (event) => {
@@ -93,7 +93,7 @@ function createHeader() {
           guiController.ESCCounter++;
 
           if (guiController.ESCCounter === 1) {
-            gameEngine.pause("pause");
+            pixelblocks.pause("pause");
           }
 
           if (guiController.ESCCounter === 2) {
@@ -108,38 +108,38 @@ function createHeader() {
             guiController.header.classList.remove("animate-header-in");
 
             guiController.header.classList.add("hidden");
-            gameEngine.pause("unpause");
+            pixelblocks.pause("unpause");
             guiController.ESCCounter = 0;
           }
         }
 
         if (key === "W") {
-          gameEngine.controls.movement.jump = true;
+          pixelblocks.controls.movement.jump = true;
         }
 
         if (key === "D") {
-          gameEngine.controls.movement.right = true;
+          pixelblocks.controls.movement.right = true;
         }
 
         if (key === "A") {
-          gameEngine.controls.movement.left = true;
+          pixelblocks.controls.movement.left = true;
         }
 
         if (key === "S") {
-          gameEngine.controls.movement.down = true;
+          pixelblocks.controls.movement.down = true;
         }
 
         if (key === "Z") {
-          if (gameEngine.camera.position.z > 1) {
-            gameEngine.camera.position.z -= 1;
-            console.log("camera pos", gameEngine.camera.position);
+          if (pixelblocks.camera.position.z > 1) {
+            pixelblocks.camera.position.z -= 1;
+            console.log("camera pos", pixelblocks.camera.position);
           }
         }
 
         if (key === "X") {
-          if (gameEngine.camera.position.z < 7) {
-            gameEngine.camera.position.z += 1;
-            console.log("camera pos", gameEngine.camera.position);
+          if (pixelblocks.camera.position.z < 7) {
+            pixelblocks.camera.position.z += 1;
+            console.log("camera pos", pixelblocks.camera.position);
           }
         }
       });
@@ -148,31 +148,31 @@ function createHeader() {
         let key = event.key.toUpperCase();
 
         if (key === "W") {
-          gameEngine.controls.movement.jump = false;
+          pixelblocks.controls.movement.jump = false;
         }
 
         if (key === "D") {
-          gameEngine.controls.movement.right = false;
+          pixelblocks.controls.movement.right = false;
         }
 
         if (key === "A") {
-          gameEngine.controls.movement.left = false;
+          pixelblocks.controls.movement.left = false;
         }
 
         if (key === "S") {
-          gameEngine.controls.movement.down = false;
+          pixelblocks.controls.movement.down = false;
         }
 
         if (key === "1") {
-          gameEngine.controls.mouse.action = "Punch";
+          pixelblocks.controls.mouse.action = "Punch";
         }
         if (key === "2") {
-          gameEngine.controls.mouse.action = "Place";
+          pixelblocks.controls.mouse.action = "Place";
         }
 
         if (key === "-") {
             console.log('newWorld', key)
-            gameEngine.socket.emit("request-world", "WORLDNAME");
+            pixelblocks.socket.emit("request-world", "WORLDNAME");
         }
 
       });
@@ -180,7 +180,7 @@ function createHeader() {
       initNetworking();
       animate();
 
-      gameEngine.running = true;
+      pixelblocks.running = true;
 
     } else {
       const warning = WebGL.getWebGL2ErrorMessage();
