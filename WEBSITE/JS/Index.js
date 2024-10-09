@@ -1,8 +1,8 @@
 import PixelBlocks from "./PixelBlocks";
-import GUIController from "./GAME/GUI/GUIController";
+import GUIController from "./PIXELBLOCKS/GUI/GUIController";
 
 export const root = document.getElementById("root");
-export const pixelblocks = new PixelBlocks()
+export const pixelblocks = new PixelBlocks();
 export const guiController = new GUIController()
 
 document.addEventListener("DOMContentLoaded", () => {
