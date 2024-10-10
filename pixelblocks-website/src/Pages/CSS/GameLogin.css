@@ -1,0 +1,87 @@
+.game-login {
+
+    width: 60%;
+    height: 80%;
+
+    min-width: 50em;
+    min-height: 25em;
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.login-form {
+
+    width: 90%;
+    height: 50%;
+
+    min-height: 20em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.login-textbox {
+
+    display: flex;
+    align-items: center;
+    gap: 3em;
+
+}
+
+.login-label {
+
+    font-size: 2.5em;
+
+}
+
+.login-text-input {
+
+    height: 2em;
+    font-size: 2em;
+
+}
+
+.login-button {
+
+    font-size: 5em;
+
+    background-color: orange;
+
+}
+
+.guest-login-button {
+
+    font-size: 3em;
+
+    background-color: orange;
+
+}
+
+.quit-button {
+
+    width: 60px;
+    height: 60px;
+
+    background-color: red;
+
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    font-size: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}

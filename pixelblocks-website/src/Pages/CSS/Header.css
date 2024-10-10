@@ -1,0 +1,53 @@
+.header-show {
+    
+    width: 100vw;
+    height: 10em;
+
+    background-color: red;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.header-hide {
+
+    position: absolute;
+    top: -10em;
+
+}
+
+.nav {
+
+    width: 60%;
+    height: 100%;
+
+    background-color: blue;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.nav-button {
+
+    max-height: fit-content;
+    background-color: green;
+    
+}
+
+.nav-link {
+
+    font-size: 2em;
+    color: orange;
+    
+}
+
+.hide-header-button {
+
+    max-height: fit-content;
+    background-color: green;
+    
+}
