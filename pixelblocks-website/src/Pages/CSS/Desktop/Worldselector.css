@@ -1,0 +1,46 @@
+.choose-world {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1.5em;
+
+    width: 100%;
+    height: 17.5em;
+
+}
+
+.choose-world-textbox {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 2em;
+
+}
+
+.worldname-input-label {
+
+    font-size: 2em;
+    font-weight: bold;
+
+}
+
+.worldname-input {
+
+    font-size: 2em;
+
+    width: 30em;
+
+}
+
+.join-world-button {
+
+   font-size: 3.5em;
+
+   background-color: green;
+
+}

@@ -1,12 +1,10 @@
 import React from "react";
 
-import "./CSS/NotFound.css";
-import Header from "./Components/Header";
+import "./CSS/Desktop/NotFound.css";
 
 function NotFound() {
   return (
     <div>
-      <Header />
       404
     </div>
   );

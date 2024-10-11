@@ -1,0 +1,145 @@
+.button-hitbox {
+
+    cursor: pointer;
+
+    min-height: 2em;
+
+    /* background-color: black; */
+
+}
+
+/* ----------------------- */
+
+.default-button {
+
+    cursor: pointer;
+
+    height: 3em;
+    min-width: 10em;
+
+}
+
+.default-button-background {
+
+    cursor: pointer;
+
+    width: 100%;
+    height: 3em;
+
+    position: relative;
+    bottom: -0.5em;
+
+    box-shadow: 0.3em 0.2em 0.5em rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+.default-button-text {
+
+    cursor: pointer;
+
+    position: relative;
+    top: -0.35em;
+    left: 0.25em;
+
+    line-height: 1em;
+
+    font-size: 3rem;
+
+}
+
+/* ----------------------- */
+
+.quit-button {
+
+    position: relative;
+    left: -30em;
+    top: -5em;
+
+}
+
+/* .back-button {
+
+} */
+
+.quit-button, .back-button {
+
+    height: 4em;
+    aspect-ratio: 1/1;
+
+}
+
+.back-button-background, .quit-button-background {
+
+    cursor: pointer;
+
+    height: 4em;
+    aspect-ratio: 1/1;
+
+    box-shadow: 0.2em 0.2em 0.5em rgba(0, 0, 0, 0.5);
+
+    display: grid;
+    place-content: center;
+}
+
+.back-button-text, .quit-button-text  {
+
+    cursor: pointer;
+
+    line-height: 0;
+    font-size: 3rem;
+
+}
+
+.back-button-text {
+
+    transform: rotate(90deg);
+
+}
+
+/* ----------------------- */
+
+.link-button {
+
+    cursor: pointer;
+
+    height: 3em;
+    min-width: 10em;
+
+    /* background-color: orange; */
+
+    position: relative;
+    bottom: -1em;
+
+}
+
+.link-button-background {
+
+    cursor: pointer;
+
+    width: 100%;
+    height: 0.75em;
+
+    box-shadow: 0.3em 0.2em 0.5em rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.link-button-text {
+
+    cursor: pointer;
+
+    position: relative;
+    /* top: -0.35em; */
+
+    line-height: 0;
+
+    font-size: 3rem;
+    
+}

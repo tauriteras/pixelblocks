@@ -1,12 +1,10 @@
 import React from 'react'
 
-import './CSS/Homepage.css'
-import Header from './Components/Header'
+import './CSS/Desktop/Homepage.css'
 
 function Homepage() {
   return (
     <div>
-      <Header />
       Home
     </div>
   )

@@ -1,38 +1,29 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import '../CSS/Header.css'
+import "../CSS/Desktop/Header.css";
+import Button from "../PIXELBLOCKS-GUI/Components/Button";
 
-function Header() {
+export default function Header() {
 
   const [headerHiddenState, setHeaderHiddenState] = useState(false);
 
-  if (document.location.href.indexOf("/pixelblocks") > 0 && headerHiddenState === false) {
-    setHeaderHiddenState(true);
-  }
-
   return (
-    <div className={`header header-${headerHiddenState ? 'hide' : 'show'}`} >
-        <ul className='nav'>
-            <li className='nav-button'>
-                <Link to="/" className='nav-link'>pixelblocks</Link>
-            </li>
-            <li className='nav-button'>
-                <Link to="/link" className='nav-link'>link</Link>
-            </li>
-            <li className='nav-button'>
-                <Link to="/link" className='nav-link'>link</Link>
-            </li>
-            <li className='nav-button'>
-                <Link to="/pixelblocks" className='nav-link' onClick={() => {
-                    if(headerHiddenState === false) {
-                        setHeaderHiddenState(true)
-                    }
-                }}>piay</Link>
-            </li>
-        </ul>
-    </div>
-  )
-}
+      headerHiddenState === false ? <div className="header">
+        <nav className="nav">
+            <Link to='/'>
+                <Button text={'pixelblocks'} />
+            </Link>
 
-export default Header
+            <Link to='/link'>
+                <Button text={'link'} type={'link'} />
+            </Link>
+
+
+            <Link to='/play'>
+                <Button text={'play'} />
+            </Link>
+        </nav>
+      </div> : ""
+  );
+}

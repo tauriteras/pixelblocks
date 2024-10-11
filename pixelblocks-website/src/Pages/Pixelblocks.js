@@ -1,14 +1,17 @@
 import * as THREE from "three";
 import React, { useRef, useEffect, useState } from "react";
 
-import "./CSS/Pixelblocks.css";
+import "./CSS/Desktop/Pixelblocks.css";
 
-import GameLogin from "./GAME-DOM-GUI/GameLogin";
-import Worldselector from "./GAME-DOM-GUI/Worldselector";
-import Header from "./Components/Header";
-import Pausemenu from "./GAME-DOM-GUI/Pausemenu";
+import GameLogin from "./PIXELBLOCKS-GUI/GameLogin";
+import Worldselector from "./PIXELBLOCKS-GUI/Worldselector";
+
+import Pausemenu from "./PIXELBLOCKS-GUI/Components/Pausemenu";
 
 export const pixelblocks = {
+  client: {
+    isMobile: undefined
+  },
   THREE: {
     scene: new THREE.Scene(),
     camera: new THREE.PerspectiveCamera(
@@ -55,6 +58,9 @@ export const pixelblocks = {
 };
 
 document.addEventListener("keydown", (event) => {
+
+  if (event.key === undefined) { return; }
+
   let key = event.key.toUpperCase();
 
   if (key === "W") {
@@ -81,6 +87,9 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("keyup", (event) => {
+
+  if (event.key === undefined) { return; }
+
   let key = event.key.toUpperCase();
 
   if (key === "W") {
@@ -200,6 +209,7 @@ export default function Pixelblocks() {
   };
 
   useEffect(() => {
+    
     pixelblocks.THREE.renderer.setSize(window.innerWidth, window.innerHeight);
     rendererRef.current &&
       rendererRef.current.appendChild(pixelblocks.THREE.renderer.domElement);
@@ -226,9 +236,6 @@ export default function Pixelblocks() {
     case "login":
       currentPage = <GameLogin setGamePage={setGamePage} />;
       break;
-    case "connecting":
-      currentPage = <></>;
-      break;
     case "worldselector":
       currentPage = <Worldselector setGamePage={setGamePage} />;
       break;
@@ -241,7 +248,6 @@ export default function Pixelblocks() {
 
   return (
     <div className="pixelblocks">
-      <Header />
       {pauseState && gamePage === 'world' ? <Pausemenu setPauseState={setPauseState} setGamePage={setGamePage}/> : ""}
       {currentPage}
     </div>

@@ -11,8 +11,7 @@ class Player {
     const material = new THREE.MeshBasicMaterial({
       side: THREE.DoubleSide,
       transparent: true,
-      map: new THREE.TextureLoader().load("./dev_default.png"),
-      color: new THREE.Color('red')
+      map: new THREE.TextureLoader().load("./GAME-ASSETS/dev_default.png")
     });
 
     const player = new THREE.Mesh(geometry, material);

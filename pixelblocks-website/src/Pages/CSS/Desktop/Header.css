@@ -1,0 +1,25 @@
+.header {
+
+    position: absolute;
+    
+    width: 100vw;
+    height: 10em;
+
+    background-color: white;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.nav {
+
+    width: 60%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
